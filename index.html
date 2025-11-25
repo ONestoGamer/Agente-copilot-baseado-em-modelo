@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Agente Copilot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="login-container">
+                <h1>🤖 Agente Copilot</h1>
+                <p>Faça login para continuar</p>
+                <div class="login-form">
+                    <input type="text" id="username" placeholder="Nome de usuário" required>
+                    <input type="password" id="password" placeholder="Senha" required>
+                    <button id="login-btn" onclick="login()">Entrar</button>
+                </div>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen hidden">
+            <div class="home-container">
+                <h1>🏠 Bem-vindo ao Chat</h1>
+                <p>Selecione uma opção para começar:</p>
+                <div class="home-options">
+                    <button class="option-btn" onclick="navigateToChat()">
+                        💬 Iniciar Chat
+                    </button>
+                    <button class="option-btn" onclick="showProfile()">
+                        👤 Perfil
+                    </button>
+                    <button class="option-btn" onclick="logout()">
+                        🚪 Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen hidden">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>💬 Chat com Agente Copilot</h2>
+                    <button class="back-btn" onclick="navigateToHome()">🏠 Voltar</button>
+                </div>
+                <div id="messages" class="messages-container"></div>
+                <div class="input-container">
+                    <input type="text" id="message-input" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div id="profile-screen" class="screen hidden">
+            <div class="profile-container">
+                <h1>👤 Perfil do Usuário</h1>
+                <div class="profile-info">
+                    <p><strong>Usuário:</strong> <span id="profile-username"></span></p>
+                    <p><strong>Status:</strong> <span class="status-online">Online</span></p>
+                </div>
+                <button class="back-btn" onclick="navigateToHome()">🏠 Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
