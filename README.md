@@ -84,12 +84,25 @@ Você pode personalizar o comportamento da aplicação usando parâmetros na URL
 
 ## 🔒 Segurança
 
-⚠️ **Nota**: Este é um projeto de demonstração. Em um ambiente de produção:
-- Use HTTPS
-- Implemente autenticação real no backend
-- Nunca armazene senhas em texto simples
-- Use tokens JWT ou sessions seguras
-- Implemente rate limiting e proteção contra ataques
+⚠️ **AVISO IMPORTANTE**: Este é um projeto de demonstração/proof-of-concept educacional. **NÃO USE EM PRODUÇÃO!**
+
+### Problemas de Segurança Conhecidos (apenas para demonstração):
+- ❌ Credenciais hardcoded no código
+- ❌ Autenticação client-side (não segura)
+- ❌ SessionStorage pode ser manipulado pelo usuário
+- ❌ Senhas em texto simples
+- ❌ Sem proteção contra path traversal no servidor
+- ❌ Mensagens de erro expõem credenciais válidas
+
+### Para um Ambiente de Produção Real:
+- ✅ Use HTTPS obrigatoriamente
+- ✅ Implemente autenticação real no backend (OAuth, JWT, etc.)
+- ✅ Use hash seguro para senhas (bcrypt, argon2)
+- ✅ Implemente sessões server-side ou tokens seguros
+- ✅ Adicione rate limiting e proteção contra ataques
+- ✅ Valide e sanitize todas as entradas
+- ✅ Implemente proteção CSRF
+- ✅ Use variáveis de ambiente para configurações sensíveis
 
 ## 🌐 Deployment
 
